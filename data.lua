@@ -3,7 +3,7 @@ data:extend({
     type = "sound",
     name = "geiger-close",
     filename = "__uranium_geiger__/sounds/geiger-close.ogg",
-    volume = 0.7,
+    volume = 0.9,
     aggregation = {
       max_count = 2,
       remove = true,
@@ -15,7 +15,7 @@ data:extend({
     type = "sound",
     name = "geiger-middle",
     filename = "__uranium_geiger__/sounds/geiger-middle.ogg",
-    volume = 0.6,
+    volume = 0.8,
     aggregation = {
       max_count = 2,
       remove = true,
@@ -27,7 +27,7 @@ data:extend({
     type = "sound",
     name = "geiger-distant",
     filename = "__uranium_geiger__/sounds/geiger-distant.ogg",
-    volume = 0.5,
+    volume = 0.7,
     aggregation = {
       max_count = 2,
       remove = true,
