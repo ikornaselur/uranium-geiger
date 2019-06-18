@@ -1,0 +1,11 @@
+{
+  "name": "uranium_geiger",
+  "version": "0.1.0",
+  "title": "Uranium Geiger",
+  "author": "ikornaselur",
+  "contact": "factorio@absalon.is",
+  "homepage": "absalon.is",
+  "factorio_version": "0.17",
+  "dependencies": ["base >= 0.17"],
+  "description": "Adds a geiger counter sound effect when close to uranium ore"
+}
