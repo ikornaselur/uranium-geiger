@@ -8,11 +8,7 @@ local function withinRadius(player, radius)
     name="uranium-ore"
   }
 
-  for _, _ in pairs(entities) do
-    return true
-  end
-
-  return false
+  return next(entities) ~= nil;
 end
 
 script.on_event({defines.events.on_tick},
