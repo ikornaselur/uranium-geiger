@@ -1,5 +1,6 @@
 data:extend(
     {
+        -- Range
         {
             type = "int-setting",
             name = "distant-range",
@@ -24,6 +25,38 @@ data:extend(
             maximum_value = 10,
             default_value = 1
         },
+        -- Radiation amount
+        {
+            type = "bool-setting",
+            name = "enable-damage",
+            setting_type = "runtime-global",
+            default_value = true
+        },
+        {
+            type = "int-setting",
+            name = "distant-radiation",
+            setting_type = "runtime-global",
+            minimum_value = 1,
+            maximum_value = 100,
+            default_value = 1
+        },
+        {
+            type = "int-setting",
+            name = "middle-radiation",
+            setting_type = "runtime-global",
+            minimum_value = 1,
+            maximum_value = 100,
+            default_value = 3
+        },
+        {
+            type = "int-setting",
+            name = "close-radiation",
+            setting_type = "runtime-global",
+            minimum_value = 1,
+            maximum_value = 100,
+            default_value = 9
+        },
+        -- Volume
         {
             type = "double-setting",
             name = "distant-volume",
