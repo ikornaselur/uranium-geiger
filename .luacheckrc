@@ -7,6 +7,7 @@ std = {
     "pairs",
     "require",
     "script",
+    "settings",
     "table"
   }
 }
