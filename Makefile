@@ -1,24 +1,26 @@
 .PHONY:dist
 
-VERSION=$(shell jq .version -r info.json)
-DIST_FILE="dist/uranium_geiger_$(VERSION).zip"
+VERSION=$(shell jq .version -r src/info.json)
+DIST_FILE="$(shell pwd)/dist/uranium_geiger_$(VERSION).zip"
 
 lint:
 	# Assumes lua-fmt installed
 	# yarn global add lua-fmt
-	find . -iname "*.lua" | xargs -n1 luafmt -w replace
+	find . -iname "src/*.lua" | xargs -n1 luafmt -w replace
 
-dist:
+prep:
 	@echo "[+] Creating distribution for version $(VERSION)..."
-	@rm -rf uranium-geiger
-	@rm -rf $(DIST_FILE)
-	@mkdir uranium-geiger
-	@mkdir -p dist
-	@cp *.lua *.json *.png LICENSE uranium-geiger
-	@cp -r locale uranium-geiger
-	@cp -r sounds uranium-geiger
+	@rm -rf $(DIST_FILE) tmp
+	@mkdir -p tmp/uranium-geiger dist
+	@cp -r src/* tmp/uranium-geiger
+
+zip:
 	@echo "[+] Zipping..."
-	@zip $(DIST_FILE) uranium-geiger -r
+	@cd tmp; zip $(DIST_FILE) uranium-geiger -r
+
+clean:
 	@echo "[+] Cleaning up..."
-	@rm -rf uranium-geiger
+	@rm -rf tmp
+
+dist: prep zip clean
 	@echo "[+] Zip ready: $(DIST_FILE)"
