@@ -3,6 +3,8 @@
 VERSION=$(shell jq .version -r src/info.json)
 DIST_FILE="$(shell pwd)/dist/uranium_geiger_$(VERSION).zip"
 
+MODS_FOLDER=$(shell realpath ~/Library/Application\ Support/factorio/mods)
+
 lint:
 	# Assumes lua-fmt installed
 	# yarn global add lua-fmt
@@ -24,3 +26,9 @@ clean:
 
 dist: prep zip clean
 	@echo "[+] Zip ready: $(DIST_FILE)"
+
+symlink:
+	@echo "[-] Removing any installs of Uranium Geiger from mods folder"
+	@rm -f "$(MODS_FOLDER)/uranium_geiger_*.*.*.zip"
+	@echo "[+] Creating symlink"
+	@ln -s "$(shell pwd)/src" "$(MODS_FOLDER)/uranium_geiger"
