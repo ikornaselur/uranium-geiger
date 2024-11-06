@@ -17,6 +17,11 @@ script.on_event(
     function(e)
         if e.tick % 60 == 0 then
             local player = game.players[1]
+            local controller_type = player.controller_type
+
+            if controller_type ~= defines.controllers.character then
+                return
+            end
 
             local close = settings.global["close-range"].value
             local middle = settings.global["middle-range"].value
